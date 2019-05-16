@@ -52,8 +52,9 @@ def run(K,tau=0,shuff=0,avc=0):
     for ind in range (0,K): # aggregator as client, k global iterations 
         # send global update information to nodes
         #data_pts = pd.read_csv(filepath, skiprows=(ind*D), nrows=(D)).values
-        #w,fn = NodeSvm.NodeSVM(w,N)
-        data = types.SimpleNamespace(w=w,k=ind,host=host,node_dict=node_dict,d=d,tau=n,shuff=shuff)#data_pts=data_pts) #data on nodes
+        
+        ### Currently using the same dataset throughout. change k=k to refresh data
+        data = types.SimpleNamespace(w=w,k=0,host=host,node_dict=node_dict,d=d,tau=tau,shuff=shuff)#data_pts=data_pts) #data on nodes
         #datasend = pickle.dumps(data) 
         #print(len(datasend))
         
