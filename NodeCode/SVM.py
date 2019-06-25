@@ -17,12 +17,13 @@ def svm(w,data_pts,eta,lam,tau,d,weight,shuff=0,N=1):#,result,index): #,tau):
     fn = np.zeros(tau) # array of calculated loss functions for each local iteration (tau)
 
     for t in range(0, int(tau)):
-        if shuff==1:
-            np.random.shuffle(data_pts)
-        elif shuff==2:
-            data_pts = Shuffle.rRobin(data_pts,N=N)
-        elif shuff==3:
-            data_pts = Shuffle.segShift(data_pts,N=N)
+        if t>0:
+            if shuff==1:
+                np.random.shuffle(data_pts)
+            elif shuff==2:
+                data_pts = Shuffle.rRobin(data_pts,N=N)
+            elif shuff==3:
+                data_pts = Shuffle.segShift(data_pts,N=N)
         x, y = Read.Read(d, data_pts, weight) # weight modifies yread
         wT = w.transpose()
         dfn = np.zeros(n)

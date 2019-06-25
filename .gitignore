@@ -1,3 +1,5 @@
 train.csv
 NodeCode/train.csv
 AggCode/train.csv
+AggCode/__pycache__
+NodeCode/__pycache__

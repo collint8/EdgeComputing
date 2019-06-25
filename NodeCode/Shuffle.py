@@ -1,5 +1,5 @@
 import numpy as np
-isImported = True
+isImported = False
 def Shuffle(data):
     np.random.shuffle(data)
     return data
@@ -22,22 +22,27 @@ def rRobin(data,N=5,M=2):
 	
 def segShift(data,N=5,M=2):
 	D,L = np.shape(data)
-	d = int(D/N)
-	r = int(d/M)
+	d = int(D/N)#data points per node
+	r = int(d/M)#points per stub
 	temp = np.zeros(shape=(r,L))
 	for m in range(0,M):
+		print('m=',m)
 		k = 0
 		for i in data[m*r:m*r+r,:]:
 			temp[k,:] = i
 			k = k+1
+		print(temp)
 		for n in range(0,N):
-			inot = ((-n*m)%N*d)+m*r
-			iprm = (-m-n*m)%N*d+m*r
+			inot = (-n*(m%(N-1)+1))%N*d+m*r
+			iprm = (-1-n)*(m%(N-1)+1)%N*d+m*r
 			data[inot:inot+r,:] = data[iprm:iprm+r,:]
-		data[(m-N*m)*d%D+m*r:(m-N*m)*d%D+m*r+r,:] = temp
+			print(data)
+		data[d*(m%(N-1)+1)+m*r:d*(m%(N-1)+1)+m*r+r,:] = temp
+		print(data)
 		
-	return data
+	return data 
 if not isImported: 
-	data = np.array([[0,0],[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8]\
-	,[9,9],[10,10],[11,11]])
-	print(rrobin(data,N=2,M=3))
+	data = np.array([[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,9]\
+	,[9,10],[10,11],[11,12],[12,13],[13,14],[14,15]])
+	print(data),
+	print(segShift(data,N=5,M=3))
