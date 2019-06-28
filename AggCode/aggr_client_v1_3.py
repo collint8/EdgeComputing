@@ -7,6 +7,10 @@ import socket
 import pickle
 import time
 
+'''
+	Send data to one node. requires some form of data to send and the ip of the recipiant 
+'''
+
 start = time.time()
 
 def client(host,data):

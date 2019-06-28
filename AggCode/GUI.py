@@ -10,7 +10,10 @@ import agg_main_vF as aggr_main
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.backends.backend_tkagg import NavigationToolbar2Tk
-
+'''
+	This is the file for the GUI A lot of it is resizing and repositioning
+	abandon hope all ye who enter here.
+'''
 LARGE_FONT1=('Times',16)
 LARGE_FONT=('Times',18,'bold')
 

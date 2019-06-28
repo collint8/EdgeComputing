@@ -2,7 +2,11 @@ import numpy as np
 import matplotlib.pyplot as pt
 import matplotlib
 
-
+"""##	This file takes the loss functions generated from the agg main and plots them using 
+##	matplotlib. It expects an K*tau by N+1 matrix of loss function values and a list of lables 
+##	of length y. Along the x axis are the loss function values for each iteration.
+##	Iterating through y iterates through the nodes. 
+##"""
 def ParsFile(fnIn,labellist):
 	stypes = ['None','Random','RoundRobin','SegShift']
 	avtypes = ['mean','median','med_avg']

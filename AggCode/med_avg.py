@@ -7,8 +7,12 @@ Created on Sat Mar 30 09:04:45 2019
 import statistics as stats
 import numpy as np
 
-
-
+"""
+These are the various forms of processing the models from the nodes. Mean 
+performs a simple average
+median is also self explanitory
+med_avg takes the average after eliminating some outlying values
+"""
 def med_avg(win): #, len_w):   <=optional
     
     w = win

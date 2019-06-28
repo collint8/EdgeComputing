@@ -11,7 +11,12 @@ import pickle
 import numpy as np
 import types
 isImported=True
-
+'''
+	This allows the aggregator to receive messages from all N nodes.
+	Once called it will sit untill all messages are received
+	Requires the number of nodes and the aggregator's ip
+	returns a matrix of w vectors and loss functions as attributes of result
+'''
 def aggr_server(host,n):
 #def aggr_server(host,N,que):  # add N as input (number of nodes)
     global N, keep_running, sel, numconn, result
@@ -46,14 +51,12 @@ def aggr_server(host,n):
             #print(callback)
             callback(key.fileobj, mask) # .fileobj is socket, 
      
-    #print('closing server')
     sel.close()
     
-    #que.put(result)
     return result
 
 
-def accept(sock, mask):
+def accept(sock, mask): 
     conn, addr = sock.accept()  # Should be ready
     #print('accepted connection from', addr)
     conn.setblocking(1)
@@ -66,16 +69,13 @@ def read(conn, mask):
     dataRecvd = conn.recv(1024)
     while dataRecvd:
         datain += dataRecvd
-        #print('received ',len(datain),' bits')
         dataRecvd = conn.recv(1024)
     
     conn.setblocking(0)
     
-    arr = pickle.loads(datain)
+    arr = pickle.loads(datain)# recieved data
     result.fn = np.append(result.fn, arr.fn)
     result.w[numconn,:] = arr.w
-    #w = np.append(w, arr.w)
-    #fn = np.append(fn, arr.fn)
     sel.unregister(conn)
     conn.close()
     

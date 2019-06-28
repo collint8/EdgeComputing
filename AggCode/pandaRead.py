@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-###read the converts a read .csv matrix into useable arrays. capable of variable lengths
+### read the converts a read .csv matrix into useable arrays. capable of variable lengths
 ### reads numPoint values out of dataset data, Converts values to be useable in SVM,
 ### and outputs them in the vectors x and y.
 ### Can skip the first offset values or select only the values found in case but
