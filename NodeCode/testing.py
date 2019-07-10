@@ -4,6 +4,9 @@ import socket
 
 import SVM
 
+"""
+Used for testing the svm on a single machine.
+"""
 
 nodeIP = socket.gethostbyname_ex(socket.gethostname())[2]
 

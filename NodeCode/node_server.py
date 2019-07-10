@@ -1,7 +1,9 @@
 import pickle
 import socket
-
-
+'''
+	Recieve data from the aggregator
+	Just needs the Node ip and recieves everything in the data sent.
+'''
 def server(host):
     
     host = host

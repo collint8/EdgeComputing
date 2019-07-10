@@ -9,8 +9,12 @@ import socket
 import pickle
 import numpy as np
 import types
-
-
+isImported = True
+'''
+	Used for node to send data back to the aggregator
+	takes the w vector, loss function, and aggip 
+        Sends the data and closes the connection
+'''
 def client(wout,fn,host):
     
     #w = wout
@@ -52,13 +56,11 @@ def client(wout,fn,host):
     sel.close()
     #return portionSent
 
- 
-###w, fn = NodeSvm.NodeSVM(w,N) # run SVM on node, N is nodenum
-##host = '192.168.0.14'
-##tau = 2
-##w = np.ones(784) #w = np.zeros(784)
-##fn = np.zeros(tau)
-##data = client(w,fn,host)
-
-
-
+## Use for testing. Currently will not run with values in here.
+if not isImported:
+	host = '192.168.0.14' #!Wrong IP !
+	tau = 2
+	w = np.ones(784) #w = np.zeros(784)
+	fn = np.zeros(tau)
+	w, fn = NodeSvm.NodeSVM(w,N) # run SVM on node, N is nodenum !Wrong Notation!
+	data = client(w,fn,host)
