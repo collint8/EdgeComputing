@@ -65,14 +65,14 @@ class StartPage(tk.Frame):
         welcome2=tk.Label(self,text='Technical Open House 2019 - Federated Learning Senior Capstone Project',font=LARGE_FONT)
         welcome3=tk.Label(self,text='Thank you for your interest in our project',font=LARGE_FONT)
         welcome4=tk.Label(self,text='    ',font=LARGE_FONT)
-
+#initiate variables
         k = tk.IntVar(self,'2')
         tau = tk.IntVar(self,'5')
         shuff = tk.IntVar(self,'0')
         avc = tk.IntVar(self,'0')
 
         cb = tk.IntVar()
-
+#link variables with text boxes
         entry0=tk.Entry(self,textvariable=k,font=LARGE_FONT1)
         entry1=tk.Entry(self,textvariable=tau,font=LARGE_FONT1)
         entry2=tk.Entry(self,textvariable=shuff,font=LARGE_FONT1)
