@@ -15,7 +15,7 @@ import ParsFile_v2_1 as ParsFile
 #from med_avg import med_avg
 #import SVM
 #import mcast_send
-import MakeFile
+#import MakeFile
 import aggr_client_v1_3 as aggr_client
 import aggr_server
 import nodeDetection
@@ -23,7 +23,7 @@ import med_avg
 import time
 import matplotlib.pyplot as pt
 #aggr_server(host,num_con,que)
-isImported = True
+isImported = False
 '''
 	The main of the system. It will initialize conditions and detect available nodes and 
 	assumes that all devices connected to the router are ready to act as a node.
@@ -50,7 +50,7 @@ def run(K,tau=0,shuff=0,avc=0):
 	# initialize data size d, iterations tau, and matrices for w, averages, and loss functions.
     if tau ==0:
         tau =N
-    multiplier = 10
+    multiplier = 3
     d = multiplier * n # number data points per node This value can be changed as desired.
     w = np.zeros(784)
     fnfn = np.zeros(shape=(N+1,K*tau))
@@ -95,7 +95,7 @@ def run(K,tau=0,shuff=0,avc=0):
 
 if not isImported:
     #use
-    K = 5
+    K = 10
     N = 5
     win = np.zeros(784)
     shuff = 4
