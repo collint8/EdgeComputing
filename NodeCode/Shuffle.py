@@ -39,19 +39,19 @@ def segShift(data,N=5,M=2):
 	r = int(d/M)#points per stub
 	temp = np.zeros(shape=(r,L))
 	for m in range(0,M):
-		print('m=',m)
+		#print('m=',m)
 		k = 0
 		for i in data[m*r:m*r+r,:]:
 			temp[k,:] = i
 			k = k+1
-		print(temp)
+		#print(temp)
 		for n in range(0,N):
 			inot = (-n*(m%(N-1)+1))%N*d+m*r
 			iprm = (-1-n)*(m%(N-1)+1)%N*d+m*r
 			data[inot:inot+r,:] = data[iprm:iprm+r,:]
-			print(data)
+			#print(data)
 		data[d*(m%(N-1)+1)+m*r:d*(m%(N-1)+1)+m*r+r,:] = temp
-		print(data)
+		#print(data)
 		
 	return data 
 # for use in testing.
