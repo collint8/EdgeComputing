@@ -13,7 +13,7 @@ import numpy as np
 
 def send(data):
  
-    MCAST_GRP = '224.1.1.1'
+    MCAST_GRP = '224.3.29.71'
     MCAST_PORT = 5007
     
     data = data # data has properties .w .nodenum .tau .k

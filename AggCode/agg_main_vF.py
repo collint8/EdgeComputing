@@ -63,9 +63,9 @@ def run(K,tau=0,shuff=0,avc=0):
         data = types.SimpleNamespace(w=w,k=0,host=host,node_dict=node_dict,d=d,tau=tau,shuff=shuff)#data_pts=data_pts) #data on nodes
 		
         # Send Data
-        #mcast_send.send(data) # alternative to sending to nodes one at a time.
-        for i in range(0,N): ## Send to each node
-            aggr_client.client(iplist[i],data)
+        mcast_send.send(data) # alternative to sending to nodes one at a time.
+        #for i in range(0,N): ## Send to each node
+        #    aggr_client.client(iplist[i],data)
         
         # aggregator as server; get ws from nodes 
         result  = aggr_server.aggr_server(host,N)
