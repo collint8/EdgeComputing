@@ -23,7 +23,8 @@ def run():
 
         # node detection: determine IP address
         #nodeIP = socket.gethostbyname_ex("raspberrypi.local")#[-1]
-        nodeIP = '192.168.0.106' '''Currently unable to detect own ip do to identical names. Must be changed for each node'''
+	'''Currently unable to detect own ip do to identical names. Must be changed for each node'''
+        nodeIP = '192.168.0.106' 
         print(nodeIP)
         # listen for info from aggregator.
         # determine node number (n) and total number of nodes (Num) from agg Xmission
